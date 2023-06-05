@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="/fontawesome/css/fontawesome.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="float-left">Students</h1>
+        <a href="/add-student" class="btn btn-sm btn-primary float-right mt-2">Add student</a>
+        <hr>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Passport</th>
+                    <th>Name</th>
+                    <th>Reg no</th>
+                    <th>Gender</th>
+                    <th>Plan</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for (const student of students) { %>
+                    <tr>
+                        <td>
+                            <img width="50" src="<%= student.passport %>" alt="Passport">
+                        </td>
+                        <td>
+                            <%= student.surname %>
+                        </td>
+                        <td>
+                            <%= student.reg_no %>
+                        </td>
+                        <td>
+                            <%= student.gender %>
+                        </td>
+                        <td>
+                            <%= student.plan_id %>
+                        </td>
+                        <td>
+                            <a href="/edit-student/<%= student.id %>"><i class="fa-fa-edit fa-2x"></i>edit</a>
+                            <a href="/delete-student/<%= student.id %>" class="text-danger"><i
+                                    class="fa-fa-trash fa-2x"></i>delete</a>
+                            <a href="/detail-detail/<%= student.id %>" class="text-success"><i
+                                    class="fa-fa-user"></i>details</a>
+                        </td>
+                    </tr>
+                    <% } %>
+            </tbody>
+        </table>
+    </div>
+
+
+    <script src="/bootstrap/js/jquery.min.js"></script>
+    <script src="/bootstrap/js/popper.min.js"></script>
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>
